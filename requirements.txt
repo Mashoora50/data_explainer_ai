@@ -6,7 +6,6 @@ langchain-text-splitters
 chromadb
 pandas
 python-dotenv
-sentence-transformers
 openai
 tiktoken
 gunicorn

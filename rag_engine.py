@@ -5,7 +5,7 @@
 import pandas as pd
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import SentenceTransformerEmbeddings
+from langchain_community.embeddings import FakeEmbeddings
 from langchain_core.documents import Document
 import os
 import json
@@ -88,7 +88,7 @@ def load_csv_to_vectorstore(filepath: str) -> dict:
     
     # Step 4: Create embeddings (convert text to numbers/vectors)
     # We use a free local model — no API key needed for this part!
-    embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
+    embeddings = FakeEmbeddings(size=384)
     
     # Step 5: Store in ChromaDB (vector database)
     vector_store = Chroma.from_documents(
